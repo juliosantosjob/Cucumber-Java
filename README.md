@@ -7,6 +7,8 @@ Frameworks & tools:
 - Cucumber(BDD)/Gherkin
 - Maven
 - Extent Reports
+- GitHub Actions
+- Github Pages
 
  ## Networks
  ###
