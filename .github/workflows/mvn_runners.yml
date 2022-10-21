@@ -28,7 +28,7 @@ jobs:
             ./scripts/installChrome.sh
               
     - name: Build Project
-      run: mvn install -Dmaven.test.skip=true
+      run: mvn install
       
     - name: Running the tests
       run: mvn test -Dcucumber.options="--tags @test"
