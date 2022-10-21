@@ -8,7 +8,7 @@ Frameworks & tools:
 - Maven
 - Extent Reports
 - GitHub Actions
-- Github Pages
+- GitHub Pages
 
  ## Networks
  ###
