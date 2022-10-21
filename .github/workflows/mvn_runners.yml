@@ -28,10 +28,10 @@ jobs:
             ./scripts/installChrome.sh
               
     - name: Build Project
-      run: mvn install
-      
+      run: mvn install -Dmaven.test.skip=true
+
     - name: Running the tests
-      run: mvn test
+      run: mvn test -Dcucumber.options="--tags @test"
 
     - name: Deploying report in gh-pages
       if: always()
