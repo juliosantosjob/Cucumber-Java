@@ -22,8 +22,10 @@ jobs:
         distribution: 'adopt'
         cache: maven
         
-    - name: Install Chrome
-      uses: browser-actions/setup-chrome@latest
+    - name: Install Google Chrome
+      run: |
+            chmod +x ./scripts/installChrome.sh
+            ./scripts/installChrome.sh
               
     - name: Build Project
       run: mvn install -Dmaven.test.skip=true
