@@ -14,28 +14,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 15
-      uses: actions/setup-java@v1
-      with:
-        java-version: '15'
-        distribution: 'adopt'
-        cache: maven
-        
-    - name: Install Google Chrome
-      run: |
-            chmod +x ./scripts/installChrome.sh
-            ./scripts/installChrome.sh
-              
-    - name: Build Project
-      run: mvn install -Dmaven.test.skip=true
+      - uses: actions/checkout@v2
+      - name: Set up JDK 15
+        uses: actions/setup-java@v1
+        with:
+          java-version: '15'
+          distribution: 'adopt'
+          cache: maven
 
-    - name: Running the tests
-      run: mvn test -Dcucumber.options="--tags @test"
+      - name: Install Google Chrome
+        run: |
+          chmod +x ./scripts/installChrome.sh
+          ./scripts/installChrome.sh
 
-    - name: Deploying report in gh-pages
-      if: always()
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        branch: gh-pages
-        folder: ./output
+      - name: Build Project
+        run: mvn install -Dmaven.test.skip=true
+
+      - name: Running tests Chrome
+        run: mvn test -DBrowser=chrome-headless -Dcucumber.options="--tags @test"
+
+      - name: Running tests Edge
+        run: mvn test -DBrowser=edge-headless -Dcucumber.options="--tags @test"
+
+      - name: Deploying report in gh-pages
+        if: always()
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./output
