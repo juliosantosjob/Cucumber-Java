@@ -13,6 +13,6 @@ Feature: Product search
 
     Examples:
       | name_item | related_results |
-      | calça     | calça           |
-      | Jaqueta   | jaqueta         |
+      | Calça     | calça           |
+      | Cropped   | cropped         |
       | Camisa    | camisa          |
