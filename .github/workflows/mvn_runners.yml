@@ -22,9 +22,8 @@ jobs:
         distribution: 'adopt'
         cache: maven
         
-    - name: Setup-chrome
+    - name: Install Chrome
       uses: browser-actions/setup-chrome@latest
-      run: chrome --version
               
     - name: Build Project
       run: mvn install -Dmaven.test.skip=true
