@@ -33,9 +33,6 @@ jobs:
       - name: Running tests Chrome
         run: mvn test -DBrowser=chrome-headless -Dcucumber.options="--tags @test"
 
-      - name: Running tests Edge
-        run: mvn test -DBrowser=edge-headless -Dcucumber.options="--tags @test"
-
       - name: Deploying report in gh-pages
         if: always()
         uses: JamesIves/github-pages-deploy-action@v4
