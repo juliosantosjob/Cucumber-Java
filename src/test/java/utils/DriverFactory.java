@@ -8,8 +8,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import static utils.PropertiesFile.getProperty;
-
 import java.time.Duration;
 
 public class DriverFactory {
