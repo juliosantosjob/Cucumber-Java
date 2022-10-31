@@ -13,7 +13,7 @@ public class CartPages {
     @FindBy(css = "a[class='bf-shelf-item__container']")
     protected List<WebElement> tltProduct;
 
-    @FindBy(xpath = "(//*[contains(@class,'radio-item-')])[3]")
+    @FindBy(xpath = "(//*[contains(@class,'radio-item-')])[1]")
     protected WebElement fldSize;
 
     @FindBy(css = "td[class='product-name']")
