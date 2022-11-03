@@ -11,7 +11,6 @@ public class CartActions extends CartPages {
 
     public CartActions(WebDriver driver) {
         PageFactory.initElements(driver, this);
-        this.driver = driver;
     }
 
     public void searchForItem(String Sneakers) {
