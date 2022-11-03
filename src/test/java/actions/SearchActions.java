@@ -12,7 +12,6 @@ public class SearchActions extends SearchPages {
 
 	public SearchActions(WebDriver driver) {
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 
 	public void goTo() {
