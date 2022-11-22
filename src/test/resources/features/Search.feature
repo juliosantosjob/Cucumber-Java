@@ -1,8 +1,8 @@
 #language:en
 @test
-Feature: Product search
+Feature: Product Search
 
-  Scenario Outline: search
+  Scenario Outline: Search
     Given that the user accesses the website home
     And click the search button
     When he fill:
