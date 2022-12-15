@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Automation Testing</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Dec 01, 2022 12:38:33</span></a>
+<a href="#"><span class="badge badge-primary">Dec 15, 2022 12:34:00</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('category-view')">
@@ -72,6 +77,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -85,25 +91,25 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Checkout Cart</p>
             <p class="text-sm">
-              <span>12:38:33 PM</span> / <span>00:17:728</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>12:34:00 PM</span> / <span>00:33:443</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Checkout Cart</h5>
-<span class='badge badge-success'>12.01.2022 12:38:33</span>
-<span class='badge badge-danger'>12.01.2022 12:38:51</span>
-<span class='badge badge-default'>00:17:728</span>
+<h5 class="test-status text-fail">Checkout Cart</h5>
+<span class='badge badge-success'>12.15.2022 12:34:00</span>
+<span class='badge badge-danger'>12.15.2022 12:34:34</span>
+<span class='badge badge-default'>00:33:443</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 </div>
 <div class="m-t-10 m-l-5"></div>
@@ -113,13 +119,13 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Add a product to cart</div>
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Add a product to cart</div>
           <div class="status-avatar float-right mr-4">
             <i class="fa fa-paperclip"></i>
           </div>
       </div>
     </div>
-        <div class="collapse">
+        <div class="">
           <div class="card-body">
               <div class="step pass-bg" title="steps.SearchSteps.that_the_user_accesses_the_website_home()">
                 <span>Given that the user accesses the website home</span>
@@ -217,9 +223,23 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="steps.CartSteps.click_again(java.lang.String)">
+              <div class="step fail-bg" title="steps.CartSteps.click_again(java.lang.String)">
                 <span>And click "Comprar" again</span>
       <div>
+        <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[text()='Comprar'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.3.0', revision: 'a4995e2c09*'
+System info: host: 'fv-az251-255', ip: '10.1.0.25', os.name: 'Linux', os.arch: 'amd64', os.version: '5.15.0-1024-azure', java.version: '15.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.124, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: /tmp/.com.google.Chrome.2Sh3rR}, goog:chromeOptions: {debuggerAddress: localhost:42331}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:42331/devtoo..., se:cdpVersion: 108.0.5359.124, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8105d959c9f6fd8b9125bf4fd3de68bb
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at utils.Helpers.waitForText(Helpers.java:16)
+	at actions.CartActions.clickBuy(CartActions.java:35)
+	at steps.CartSteps.click_again(CartSteps.java:34)
+	at ✽.click "Comprar" again(file:///home/runner/work/Cucumber-Java/Cucumber-Java/src/test/resources/features/Cart.feature:13)
+</textarea>
+      
       </div>
               </div>
               <div class="step pass-bg" title="AFTER_STEP">
@@ -233,36 +253,14 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="steps.CartSteps.click(java.lang.String)">
+              <div class="step skip-bg" title="steps.CartSteps.click(java.lang.String)">
                 <span>And click "Finalizar Compra"</span>
-      <div>
+      <div>Step skipped
       </div>
               </div>
-              <div class="step pass-bg" title="AFTER_STEP">
-                <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
-      <div>image
-          <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded8.png' src="output/../screenshots/embedded8.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="steps.CartSteps.he_visualizes_the_he_has_chosen_in_the_section(java.lang.String,java.lang.String)">
+              <div class="step skip-bg" title="steps.CartSteps.he_visualizes_the_he_has_chosen_in_the_section(java.lang.String,java.lang.String)">
                 <span>Then he visualizes the "Tênis" he has chosen in the "Meu Carrinho" section</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER_STEP">
-                <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
-      <div>image
-          <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded9.png' src="output/../screenshots/embedded9.png">
-    
-    </div></div>
-</div>
-      <div>
+      <div>Step skipped
       </div>
               </div>
           </div>
@@ -278,7 +276,7 @@
           <div class="test-detail">
             <p class="name">Product Search</p>
             <p class="text-sm">
-              <span>12:38:51 PM</span> / <span>00:19:313</span>
+              <span>12:34:34 PM</span> / <span>00:21:691</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -287,9 +285,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Product Search</h5>
-<span class='badge badge-success'>12.01.2022 12:38:51</span>
-<span class='badge badge-danger'>12.01.2022 12:39:10</span>
-<span class='badge badge-default'>00:19:313</span>
+<span class='badge badge-success'>12.15.2022 12:34:34</span>
+<span class='badge badge-danger'>12.15.2022 12:34:56</span>
+<span class='badge badge-default'>00:21:691</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=23</span>
 </div>
 <div class="m-t-10 m-l-5"></div>
@@ -325,7 +323,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded10.png' src="output/../screenshots/embedded10.png">
+    <img data-featherlight='output/../screenshots/embedded8.png' src="output/../screenshots/embedded8.png">
     
     </div></div>
 </div>
@@ -341,7 +339,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded11.png' src="output/../screenshots/embedded11.png">
+    <img data-featherlight='output/../screenshots/embedded9.png' src="output/../screenshots/embedded9.png">
     
     </div></div>
 </div>
@@ -359,7 +357,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded12.png' src="output/../screenshots/embedded12.png">
+    <img data-featherlight='output/../screenshots/embedded10.png' src="output/../screenshots/embedded10.png">
     
     </div></div>
 </div>
@@ -375,7 +373,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded13.png' src="output/../screenshots/embedded13.png">
+    <img data-featherlight='output/../screenshots/embedded11.png' src="output/../screenshots/embedded11.png">
     
     </div></div>
 </div>
@@ -393,7 +391,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded14.png' src="output/../screenshots/embedded14.png">
+    <img data-featherlight='output/../screenshots/embedded12.png' src="output/../screenshots/embedded12.png">
     
     </div></div>
 </div>
@@ -421,7 +419,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded15.png' src="output/../screenshots/embedded15.png">
+    <img data-featherlight='output/../screenshots/embedded13.png' src="output/../screenshots/embedded13.png">
     
     </div></div>
 </div>
@@ -437,7 +435,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded16.png' src="output/../screenshots/embedded16.png">
+    <img data-featherlight='output/../screenshots/embedded14.png' src="output/../screenshots/embedded14.png">
     
     </div></div>
 </div>
@@ -455,7 +453,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded17.png' src="output/../screenshots/embedded17.png">
+    <img data-featherlight='output/../screenshots/embedded15.png' src="output/../screenshots/embedded15.png">
     
     </div></div>
 </div>
@@ -471,7 +469,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded18.png' src="output/../screenshots/embedded18.png">
+    <img data-featherlight='output/../screenshots/embedded16.png' src="output/../screenshots/embedded16.png">
     
     </div></div>
 </div>
@@ -489,7 +487,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded19.png' src="output/../screenshots/embedded19.png">
+    <img data-featherlight='output/../screenshots/embedded17.png' src="output/../screenshots/embedded17.png">
     
     </div></div>
 </div>
@@ -517,7 +515,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded20.png' src="output/../screenshots/embedded20.png">
+    <img data-featherlight='output/../screenshots/embedded18.png' src="output/../screenshots/embedded18.png">
     
     </div></div>
 </div>
@@ -533,7 +531,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded21.png' src="output/../screenshots/embedded21.png">
+    <img data-featherlight='output/../screenshots/embedded19.png' src="output/../screenshots/embedded19.png">
     
     </div></div>
 </div>
@@ -551,7 +549,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded22.png' src="output/../screenshots/embedded22.png">
+    <img data-featherlight='output/../screenshots/embedded20.png' src="output/../screenshots/embedded20.png">
     
     </div></div>
 </div>
@@ -567,7 +565,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded23.png' src="output/../screenshots/embedded23.png">
+    <img data-featherlight='output/../screenshots/embedded21.png' src="output/../screenshots/embedded21.png">
     
     </div></div>
 </div>
@@ -585,7 +583,7 @@
                     <span>steps.Hooks.shots(io.cucumber.java.Scenario)</span>
       <div>image
           <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='output/../screenshots/embedded24.png' src="output/../screenshots/embedded24.png">
+    <img data-featherlight='output/../screenshots/embedded22.png' src="output/../screenshots/embedded22.png">
     
     </div></div>
 </div>
@@ -608,10 +606,10 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view category-view attributes-view">
+<div class="test-wrapper row view exception-view attributes-view">
 <div class="test-list">
 <div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
 <ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
@@ -619,15 +617,15 @@
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>5</span>
+<span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">@test</p>
-<p class="duration text-sm">5 tests</p>
+<p class="name">org.openqa.selenium.TimeoutException</p>
+<p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@test</h4>
-<span status="pass" class='badge log pass-bg'>5 passed</span>
+<h4>org.openqa.selenium.TimeoutException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -638,9 +636,63 @@
 </tr>
 </thead>
 <tbody>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:33 PM</td>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>12:34:13 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='16'>And click "Comprar" again</a>
+<div class="">
+<span class="badge badge-default">Checkout Cart.Add a product to cart.And click "Comprar" again</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>4</span>
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@test</p>
+<p class="duration text-sm">5 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@test</h4>
+<span status="pass" class='badge log pass-bg'>4 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>12:34:00 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Add a product to cart</a>
 <div class="">
@@ -650,7 +702,7 @@
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:51 PM</td>
+<td>12:34:34 PM</td>
 <td>
 <a href="#" class="linked" test-id='23' id='24'>Search</a>
 <div class="">
@@ -660,7 +712,7 @@
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:51 PM</td>
+<td>12:34:34 PM</td>
 <td>
 <a href="#" class="linked" test-id='23' id='25'>Search</a>
 <div class="">
@@ -670,7 +722,7 @@
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:57 PM</td>
+<td>12:34:42 PM</td>
 <td>
 <a href="#" class="linked" test-id='23' id='38'>Search</a>
 <div class="">
@@ -680,7 +732,7 @@
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:39:04 PM</td>
+<td>12:34:49 PM</td>
 <td>
 <a href="#" class="linked" test-id='23' id='51'>Search</a>
 <div class="">
@@ -705,25 +757,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Dec 01, 2022 12:38:33</h3>
+<h3>Dec 15, 2022 12:34:00</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Dec 01, 2022 12:39:10</h3>
+<h3>Dec 15, 2022 12:34:56</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>2</h3>
+<h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -739,12 +791,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>2</b> features passed
+<div><small data-tooltip='50%'>
+<b>1</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> features failed,
+<small data-tooltip='50%'><b>1</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -762,9 +814,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>4</b> scenarios passed</small></div>
+<div><small data-tooltip='75%'><b>3</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> scenarios failed,
+<small data-tooltip='25%'><b>1</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -782,10 +834,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>48</b> steps passed</small></div>
+<div><small data-tooltip='93%'><b>43</b> steps passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> steps failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='2%'><b>1</b> steps failed,
+<b>2</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -801,7 +853,7 @@
 </div></div>
 <script>
 var timeline = {
-"Checkout Cart":17.728,"Product Search":19.313
+"Checkout Cart":33.443,"Product Search":21.691
 };
 </script>
 <div class="row">
@@ -812,11 +864,11 @@ var timeline = {
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
 <td>@test</td>
-<td>5</td>
+<td>4</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>100%</td>
+<td>80%</td>
 </tr>
 </tbody>
 </table></div>
@@ -853,21 +905,21 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 2,
-failParent: 0,
+passParent: 1,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 4,
-failChild: 0,
+passChild: 3,
+failChild: 1,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 48,
-failGrandChild: 0,
+passGrandChild: 43,
+failGrandChild: 1,
 warningGrandChild: 0,
-skipGrandChild: 0,
+skipGrandChild: 2,
 infoGrandChild: 0,
 eventsCount: 5,
 };
